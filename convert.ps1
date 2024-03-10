@@ -52,3 +52,10 @@ $src="$temp_folder\$name.pdf"
 $dst="$folder\$name.pdf"
 write-output "$src -> $dst"
 Copy-Item -Path "$src" -Destination "$dst" -Force
+
+$src="$temp_folder\${name}_files"
+if (Test-Path $src) {
+    $dst="$folder"
+    write-output "$src -> $dst"
+    Copy-Item -Path "$src" -Destination "$dst" -Force -Recurse
+}
