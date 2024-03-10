@@ -14,11 +14,12 @@ function New-TemporaryDirectory {
     $t = New-Item -ItemType Directory -Path (Join-Path $parent $name)
     $t.FullName
 }
+$full_path = [System.IO.Path]::GetFullPath($notebook)
 
 # get the notebook name
 $name = [System.IO.Path]::GetFileNameWithoutExtension($notebook)
 # get the notebook folder
-$folder = [System.IO.Path]::GetDirectoryName($notebook)
+$folder = [System.IO.Path]::GetDirectoryName($full_path)
 # get the notebook file name with extension
 $notebook_file = [System.IO.Path]::GetFileName($notebook)
 
@@ -42,4 +43,12 @@ write-output "wsl_temp_folder: ${wsl_temp_folder}"
 write-output "docker_image: ${docker_image}"
 write-output "notebook: ${notebook}"
 
-wsl --exec docker run --rm -it -v "${wsl_temp_folder}:/data" "${docker_image}" bash
+wsl --exec docker run --rm  -v "${wsl_temp_folder}:/data" "${docker_image}" /convert.sh "$notebook_file"
+$src="$temp_folder\$name.tex"
+$dst="$folder\$name.tex"
+write-output "$src -> $dst"
+Copy-Item -Path "$src" -Destination "$dst" -Force
+$src="$temp_folder\$name.pdf"
+$dst="$folder\$name.pdf"
+write-output "$src -> $dst"
+Copy-Item -Path "$src" -Destination "$dst" -Force
