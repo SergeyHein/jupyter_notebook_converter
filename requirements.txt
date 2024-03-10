@@ -1,0 +1,8 @@
+hurst
+IPython
+nbmerge
+notebook
+networkx
+pandoc
+
+
