@@ -1,7 +1,7 @@
 FROM python:3.11-slim as base
 
 COPY requirements.txt .
-COPY convert.sh .
+COPY ./src/convert.sh .
 RUN chmod u+x convert.sh
 RUN apt-get  --assume-yes update
 RUN apt-get  --assume-yes install texlive-xetex
