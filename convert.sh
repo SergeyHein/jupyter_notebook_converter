@@ -44,6 +44,11 @@ dst="$folder/$name.pdf"
 echo "$src -> $dst"
 cp -f "$src" "$dst"
 
+src="$temp_folder/$name.html"
+dst="$folder/$name.html"
+echo "$src -> $dst"
+cp -f "$src" "$dst"
+
 # Check for and copy any output files directory
 src="$temp_folder/${name}_files"
 if [ -d "$src" ]; then

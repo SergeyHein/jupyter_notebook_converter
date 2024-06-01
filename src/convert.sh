@@ -6,3 +6,4 @@ FILE="$1"
 cd /data
 jupyter nbconvert "$1" --to pdf --no-prompt
 jupyter nbconvert "$1" --to latex --no-prompt
+jupyter nbconvert "$1" --to html --no-prompt
