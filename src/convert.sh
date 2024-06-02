@@ -11,9 +11,10 @@ jupyter nbconvert "$1" --to html --no-prompt
 cp "${FILE_WITHOUT_EXT}.tex" "${FILE_WITHOUT_EXT}_updated.tex"
 
 
+
 sed -i '/\\textbf{Table of contents}/,/^$/{
   /\\textbf{Table of contents}/a\
-\n\\newpage\\tableofcontents\\newpage\n
+\n\\setcounter{tocdepth}{5}\n\\setcounter{secnumdepth}{5}\\newpage\\tableofcontents\\newpage\n
   /\\textbf{Table of contents}/,/^$/d
 }' "${FILE_WITHOUT_EXT}_updated.tex"
 
