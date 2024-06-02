@@ -13,7 +13,7 @@ cp "${FILE_WITHOUT_EXT}.tex" "${FILE_WITHOUT_EXT}_updated.tex"
 
 sed -i '/\\textbf{Table of contents}/,/^$/{
   /\\textbf{Table of contents}/a\
-\\tableofcontents\n
+\n\\newpage\\tableofcontents\\newpage\n
   /\\textbf{Table of contents}/,/^$/d
 }' "${FILE_WITHOUT_EXT}_updated.tex"
 
