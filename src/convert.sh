@@ -17,3 +17,9 @@ sed -i '/\\textbf{Table of contents}/,/^$/{
   /\\textbf{Table of contents}/,/^$/d
 }' "${FILE_WITHOUT_EXT}_updated.tex"
 
+echo "xelatex 3 times: ['xelatex', ${FILE_WITHOUT_EXT}_updated.tex, '-quiet']"
+
+
+xelatex "${FILE_WITHOUT_EXT}_updated.tex" -quiet
+xelatex "${FILE_WITHOUT_EXT}_updated.tex" -quiet
+xelatex "${FILE_WITHOUT_EXT}_updated.tex" -quiet

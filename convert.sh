@@ -39,6 +39,17 @@ dst="$folder/$name.tex"
 echo "$src -> $dst"
 cp -f "$src" "$dst"
 
+src="$temp_folder/${name}_updated.tex"
+dst="$folder/${name}_updated.tex"
+echo "$src -> $dst"
+cp -f "$src" "$dst"
+
+src="$temp_folder/${name}_updated.pdf"
+dst="$folder/${name}_updated.pdf"
+echo "$src -> $dst"
+cp -f "$src" "$dst"
+
+
 src="$temp_folder/$name.pdf"
 dst="$folder/$name.pdf"
 echo "$src -> $dst"
