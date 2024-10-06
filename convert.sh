@@ -11,6 +11,12 @@ fi
 
 notebook="$1"
 
+# check if the notebook exists
+if [ ! -f "$notebook" ]; then
+    echo "Notebook not found: $notebook"
+    exit 1
+fi
+
 # Create a new temporary directory
 temp_folder=$(mktemp -d)
 echo "temp_folder: $temp_folder"
